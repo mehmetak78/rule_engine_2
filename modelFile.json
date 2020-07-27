@@ -1,0 +1,59 @@
+[
+  {
+    "condition": "atNight",
+    "result": "value",
+    "resultArgs":["resultAtNight"]},
+  {
+    "condition": "seasonIncludes",
+    "conditionArgs": ["winter"],
+    "result": "value",
+    "resultArgs":["resultWinter"]},
+  {
+    "condition": "and",
+    "conditionArgs": [
+      {
+        "condition": "seasonIncludes",
+        "conditionArgs": ["summer"]},
+      {
+        "condition": "countryIncludedIn",
+        "conditionArgs": ["sparta", "atlantis"]}
+    ],
+    "result": "value",
+    "resultArgs": ["resultSummerAnd(SpartaOrAtlantis)"]
+  },
+  {
+    "condition":"seasonIncludes",
+    "conditionArgs": ["summer"],
+    "result": "pickMinDuration",
+    "resultArgs": [[
+      [ 150,        []                  ],
+      [ 350,        "resultSummerMinDuration350"  ],
+      [ 570,        "resultSummerMinDuration570"     ],
+      [ "Infinity", "resultSummerMinDurationInfinity"              ]
+    ]]
+  },
+  {
+    "condition":"not",
+    "conditionArgs": [
+      {
+        "condition":"seasonIncludes",
+        "conditionArgs": ["summer"]
+      }
+    ],
+    "result": "pickMinDuration",
+    "resultArgs": [[
+      [150,        []                  ],
+      [450,        "resultNotSummerMinDuration450"  ],
+      ["Infinity", "resultNotSummerMinDurationInfinity"     ]
+    ]]
+  }
+]
+
+
+
+
+
+
+
+
+
